@@ -1,3 +1,7 @@
+# TicTacToe challenge
+
+![](/images/tic.gif)
+
 # How to run this project on docker
 
 ```
