@@ -38,12 +38,16 @@ public class Board {
         System.out.println("-------");
     }
 
-    public void putMark(int row, int col, int playerId){
+    public boolean putMark(int row, int col, int playerId){
+        //If it's true
         if (board[row][col] == 0) {
             board[row][col] = playerId;
             availableCell--;
+            return true;
+        //If it's false
         }else {
             System.out.println("This cell is already used");
+            return false;
         }
     }
 
@@ -96,9 +100,37 @@ public class Board {
         }
     }
 
-    public void setTestBoard(int c1, int c2, int c3){
-        board[0][0] = c1;
-        board[0][1] = c2;
-        board[0][2] = c3;
+    public boolean placeMark(int pos, String user) {
+        if (user.equals("Player1")){
+            mark = 1;
+        }else if (user.equals("CPU") || user.equals("Player2")) {
+            mark = 2;
+        }
+        switch (pos) {
+            case 1:
+                return putMark(0, 0, mark);
+            case 2:
+                return putMark(0, 1, mark);
+            case 3:
+                return putMark(0, 2, mark);
+            case 4:
+                return putMark(1, 0, mark);
+            case 5:
+                return putMark(1, 1, mark);
+            case 6:
+                return putMark(1, 2, mark);
+            case 7:
+                return putMark(2, 0, mark);
+            case 8:
+                return putMark(2, 1, mark);
+            case 9:
+                return putMark(2, 2, mark);
+        }
+        return false;
     }
 }
+
+
+// 1 2 3
+// 4 5 6
+// 7 8 9
