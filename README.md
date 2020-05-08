@@ -34,6 +34,12 @@ docker build -t java7 .
 docker run --rm -it java7
 ```
 
+## Run the project every time
+
+```
+./run.sh
+```
+
 0 --> Empty
 1 --> X
 2 --> O

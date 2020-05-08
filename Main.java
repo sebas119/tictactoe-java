@@ -3,7 +3,6 @@ import java.util.Random;
 
 public class Main {
 
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
@@ -31,24 +30,29 @@ public class Main {
 
         //TODO: Complete goodMove functionality
         do {
-            System.out.println("Choose place from 1 to 9");
-            player1Pos = scan.nextInt();
-            board.placeMark(player1Pos, player1);
+            goodMove = false;
+            while (goodMove == false){
+                System.out.println("Choose place from 1 to 9");
+                player1Pos = scan.nextInt();
+                goodMove = board.placeMark(player1Pos, player1);
+            }
             board.printBoard();
 
             if (board.checkWinner()){
                 System.out.println("Winner: " + player1);
                 break;
             }
-
-            System.out.println("Choose place from 1 to 9");
-            if (player2.equals("CPU")){
-                player2Pos = rand.nextInt(9) + 1;
-                System.out.println("Position chosen by CPU: " + player2Pos);
-            }else {
-                player2Pos = scan.nextInt();
+            goodMove = false;
+            while (goodMove == false){
+                System.out.println("Choose place from 1 to 9");
+                if (player2.equals("CPU")){
+                    player2Pos = rand.nextInt(9) + 1;
+                    System.out.println("Position chosen by CPU: " + player2Pos);
+                }else {
+                    player2Pos = scan.nextInt();
+                }
+                goodMove = board.placeMark(player2Pos, player2);
             }
-            board.placeMark(player2Pos, player2);
             board.printBoard();
             if (board.checkWinner()){
                 System.out.println("Winner: " + player2);

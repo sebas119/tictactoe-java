@@ -38,10 +38,10 @@ public class Board {
         System.out.println("-------");
     }
 
-    public boolean putMark(int row, int col, int playerId){
+    public boolean putMark(int row, int col, int markCell){
         //If it's true
         if (board[row][col] == 0) {
-            board[row][col] = playerId;
+            board[row][col] = markCell;
             availableCell--;
             return true;
         //If it's false
@@ -126,6 +126,7 @@ public class Board {
             case 9:
                 return putMark(2, 2, mark);
         }
+        System.out.println("Wrong number");
         return false;
     }
 }
