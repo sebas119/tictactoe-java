@@ -26,6 +26,7 @@
             <li>(optional) a “ready to go” environment to play with the Tic Tac Toe - like a Docker container for example.</li>
         </ul>
 </ul>
+
 ## How to run this project on docker
 
 ```
